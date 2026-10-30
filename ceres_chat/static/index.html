@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ceres Chat</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="bar">
+  <div class="brand">Ceres <span>chat · v0</span></div>
+  <select id="persona" class="persona" title="Who is asking (Ceres memory v0 personas)"><option value="">no persona</option></select>
+  <button type="button" id="new-conv" class="newconv" title="Start a new conversation (Ceres forgets the earlier turns)">New conversation</button>
+  <div id="status" class="status" title="Ceres status">checking Ceres…</div>
+  <label class="switch"><input type="checkbox" id="details-toggle"> details</label>
+</header>
+
+<main class="layout">
+  <section class="chat">
+    <div id="thread" class="thread" aria-live="polite">
+      <div class="empty" id="empty">
+        <p>Ask Ceres a question. Follow-ups work ("And for maize?") within a conversation; pick a persona to tell Ceres who is asking.
+           Ceres answers only from the library and cites its passages.</p>
+        <p class="hint">An answer takes about 15 seconds.</p>
+      </div>
+    </div>
+    <form id="ask" class="ask" autocomplete="off">
+      <div class="lang" role="radiogroup" aria-label="Language">
+        <button type="button" data-lang="en" class="on">EN</button>
+        <button type="button" data-lang="ro">RO</button>
+      </div>
+      <textarea id="question" rows="2" maxlength="2000" placeholder="e.g. What is the optimal sowing density for sunflower?"></textarea>
+      <button type="submit" id="send">Ask</button>
+    </form>
+  </section>
+
+  <aside class="evidence" id="evidence">
+    <h2>Evidence</h2>
+    <p class="muted" id="evidence-empty">The passages Ceres retrieved for the selected answer appear here.</p>
+    <div id="evidence-list"></div>
+  </aside>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

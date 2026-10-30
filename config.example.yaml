@@ -1,0 +1,11 @@
+# ceres-chat config template. Copy to config.yaml (git-ignored). Env overrides: CERES_CHAT_<SECTION>__<KEY>, e.g.
+# CERES_CHAT_SERVER__PORT=8311. The API key itself never goes in this file: name an env variable or a key file.
+ceres:
+  url: http://127.0.0.1:8300          # the Ceres service (its api.host/api.port)
+  api_key_env: CERES_API_KEY          # read the key from this variable ...
+  api_key_file: null                  # ... or from this file (first line), e.g. the Ceres runtime's api-key file
+  timeout_s: 300                      # an answer takes ~15 s; Ceres queues up to its own limits
+server:
+  host: 127.0.0.1                     # loopback only (single local user, v0)
+  port: 8310
+runtime_dir: runtime                  # exchanges.jsonl + feedback.jsonl (relative to this folder unless absolute)
